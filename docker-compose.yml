@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
 
 
-
+# if you don't want to use env configration.
     environment:
       DB_CONNECTION: mysql
       DB_HOST: db  
@@ -23,7 +23,7 @@ services:
     networks:
       - kahunas-network
 
-  kahunasserver:
+  server:
     image: nginx:alpine
     container_name: nginx_webserver
     restart: unless-stopped
