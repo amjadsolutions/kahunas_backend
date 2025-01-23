@@ -9,13 +9,13 @@ services:
 
 
 # if you don't want to use env configration.
-    environment:
-      DB_CONNECTION: mysql
-      DB_HOST: db  
-      DB_PORT: 3306
-      DB_DATABASE: kahunas_db
-      DB_USERNAME: root 
-      DB_PASSWORD: secret
+    # environment:
+    #   DB_CONNECTION: mysql
+    #   DB_HOST: db  
+    #   DB_PORT: 3306
+    #   DB_DATABASE: kahunas_db
+    #   DB_USERNAME: root 
+    #   DB_PASSWORD: secret
 
     working_dir: /var/www
     volumes:
@@ -37,19 +37,19 @@ services:
     networks:
       - kahunas-network
 
-  db:
-    image: mysql:8.0
-    container_name: mysql_db
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: secret   
-      MYSQL_DATABASE: kahunas_db        
-    ports:
-      - "3307:3306"
-    volumes:
-      - db_data:/var/lib/mysql      
-    networks:
-      - kahunas-network
+  # db:
+  #   image: mysql:8.0
+  #   container_name: mysql_db
+  #   restart: unless-stopped
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: secret   
+  #     MYSQL_DATABASE: kahunas_db        
+  #   ports:
+  #     - "3307:3306"
+  #   volumes:
+  #     - db_data:/var/lib/mysql      
+  #   networks:
+  #     - kahunas-network
 
 volumes:
   db_data: 
